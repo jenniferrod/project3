@@ -5,29 +5,34 @@ import Footer from "../../components/Footer";
 import { List } from "../../components/List";
 import API from "../../utils/API";
 import Card from "../../components/Card";
-import ConfirmedGuest from "../../components/ConfirmedGuest";
+import Comments from "../../components/Comments";
+import "./Guestbook.css";
+import Entry from "../../components/Entry";
+
+
+
 
 class Guestbook extends Component {
     state = {
-        attendees: []
+        entries: []
     };
 
     componentDidMount() {
-        this.getAttendees();
+        this.getGuestBookEntries();
     }
 
-    getAttendees = () => {
-        API.getAttendees()
+    getGuestBookEntries = () => {
+        API.getGuestBookEntries()
             .then(res =>
                 this.setState({
-                    attendees: res.data
+                    entries: res.data
                 })
             )
             .catch(err => console.log(err));
     };
 
     handleEntryDelete = id => {
-        API.deleteGuestBookEntry(id).then(res => this.getAttendees());
+        API.deleteGuestBookEntry(id).then(res => this.getGuestBookEntries());
     };
 
     render() {
@@ -36,37 +41,49 @@ class Guestbook extends Component {
                 <Row>
                     <Col size="md-12">
                         <Jumbotron>
-                            <h1 className="text-center">
-                                <strong>We're excited to have you - Please sign the guest book if you'll be attending!</strong>
+                            <h1 className="text-center display-4">
+                                We're <strong>excited</strong> to see you!
                             </h1>
-                            <h2 className="text-center">
-                                And leave a comment
-                            </h2>
+                            <hr />
+                            <p className="text-center display-9">
+                            <small>
+                                sign our guest book &amp; let everyone know you'll be there
+                            </small>
+                            </p>
                         </Jumbotron>
                     </Col>
                 </Row>
                 <Row>
                     <Col size="md-12">
-                        <Card title="Confirmed attendees">
-                            {this.state.attendees.length ? (
-                                <List>
-                                    {this.state.attendees.map(entry => (
-                                        <ConfirmedGuest
-                                            key={entry._id}
-                                            _id={entry._id}
-                                            firstName={entry.firstName}
-                                            handleClick={this.handleEntryDelete}
-                                            buttonText="Delete Entry"
-                                            saved
-                                        />
-                                    ))}
-                                </List>
-                            ) : (
-                                    <h2 className="text-center"></h2>
-                                )}
-                        </Card>
+                        <Entry>
+                            <Card title="guestbook comments">
+                                    {this.state.entries.length ? (
+                                        <List>
+                                            {this.state.entries.map(entry => (
+                                                <Comments
+                                                    key={entry._id}
+                                                    _id={entry._id}
+                                                    firstName={entry.firstName}
+                                                    handleClick={this.handleEntryDelete}
+                                                    buttonText="Delete Entry"
+                                                    saved
+                                                />
+                                            ))}
+                                        </List>
+                                    ) : (
+                                            <h2 className="text-center"></h2>
+                                        )}
+                                </Card>
+                        </Entry>
                     </Col>
                 </Row>
+                
+                <hr className="display-4" />
+                
+                <Row>
+                
+                </Row>
+                
                 <Footer />
             </Container>
         );

@@ -5,7 +5,7 @@ import API from "../../utils/API";
 import { Col, Row, Container } from "../../components/Grid";
 import Card from "../../components/Card";
 import RsvpEntry from "../../components/RsvpEntry";
-
+import "./Home.css";
 
 class Home extends Component {
   state = {
@@ -49,12 +49,13 @@ class Home extends Component {
         <Row>
           <Col size="md-12">
             <Jumbotron>
-              <h1 className="text-center">
-                <strong>We're having a party and we'd love for you to come!</strong>
+              <h1 className="text-center display-4">
+                We're having a party and we'd <strong>LOVE</strong> for you to come!
               </h1>
-              <h2 className="text-center">
-                Please RSVP if you can make it &amp; Don't forget to sign the guest book
-              </h2>
+              <hr />
+              <p className="text-center display-9">
+                please RSVP if you can make it
+              </p>
             </Jumbotron>
           </Col>
           <Col size="md-12">

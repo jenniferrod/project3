@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./Nav.css";
 
 const Nav = () => (
   <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -23,7 +22,7 @@ const Nav = () => (
           <Link className="nav-link" to="/">RSVP</Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" to="/guestbook">Guest book</Link>
+          <Link className="nav-link" to="/guestbook">Guest Book</Link>
         </li>
         <li className="nav-item">
           <Link className="nav-link disabled" to="/itinerary">Itinerary</Link>

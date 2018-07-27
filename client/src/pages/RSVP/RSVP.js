@@ -5,7 +5,7 @@ import API from "../../utils/API";
 import { Col, Row, Container } from "../../components/Grid";
 // import Nav from "./components/Nav";
 import Card from "../../components/Card";
-import ConfirmedGuest from "../../components/ConfirmedGuest";
+import ConfirmedGuest from "../../components/ConfirmGuest";
 
 
 class RSVP extends Component {
@@ -49,16 +49,6 @@ class RSVP extends Component {
         return (
             <Container>
                 <Row>
-                    <Col size="md-12">
-                        <Jumbotron>
-                            <h1 className="text-center">
-                                <strong>We'd love  if you'd join us!</strong>
-                            </h1>
-                            <h2 className="text-center">
-                                You're invited to the party! Please RSVP and sign the guest book to get everyone excited to see you!!
-                            </h2>
-                        </Jumbotron>
-                    </Col>
                     <Col size="md-12">
                         <Card title="RSVP">
                             <ConfirmedGuest

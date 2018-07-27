@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Home from "./pages/Home";
 import Guestbook from "./pages/Guestbook";
-import NoMatch from "./pages/NoMatch";
+import Itinerary from "./pages/Itinerary";
 import RSVP from "./pages/RSVP";
 import Nav from "./components/Nav";
 
@@ -16,7 +16,7 @@ const App = () => (
         <Route exact path="/guestbook" component={Guestbook} />
         <Route exact path="/RSVP" component={RSVP} />
 
-        <Route component={NoMatch} />
+        <Route component={Itinerary} />
       </Switch>
     </div>
   </Router>
