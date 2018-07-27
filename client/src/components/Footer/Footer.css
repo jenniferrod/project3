@@ -1,0 +1,11 @@
+footer {
+    text-align: center;
+}
+
+.footer > .footertxt > img {
+    width: 20px;
+    position: relative;
+    top: 3px;
+    left: 2px;
+}
+  

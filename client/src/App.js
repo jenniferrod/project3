@@ -1,21 +1,25 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
-}
+import Home from "./pages/Home";
+import Guestbook from "./pages/Guestbook";
+import NoMatch from "./pages/NoMatch";
+import RSVP from "./pages/RSVP";
+import Nav from "./components/Nav";
+
+const App = () => (
+  <Router>
+    <div>
+      <Nav />
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/guestbook" component={Guestbook} />
+        <Route exact path="/RSVP" component={RSVP} />
+
+        <Route component={NoMatch} />
+      </Switch>
+    </div>
+  </Router>
+);
 
 export default App;
