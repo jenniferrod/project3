@@ -1,0 +1,8 @@
+{
+  "name": "project3",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:jenniferrod/project3.git",
+  "author": "jennifer rodriguez",
+  "license": "MIT"
+}
